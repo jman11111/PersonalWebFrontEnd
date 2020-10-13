@@ -151,7 +151,7 @@ class Sculptures extends Component {
             />
           </div>
           <div className="row my-row">
-            <div className="col-2">
+            <div className="col-2 w-25">
               <ListGroup
                 items={years}
                 onItemSelect={this.handleYearSelect}
