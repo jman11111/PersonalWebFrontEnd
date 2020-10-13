@@ -28,6 +28,7 @@ class SortBy extends Component {
     const {
       sortOptions,
       textProperty,
+      labelProperty,
       selectedSortOption,
       className,
     } = this.props;
@@ -45,7 +46,7 @@ class SortBy extends Component {
                     : "list-group-item col clickable"
                 }
               >
-                {option[textProperty]} {this.renderSortIcon(option)}
+                {option[labelProperty]} {this.renderSortIcon(option)}
               </button>
             );
           })}
@@ -57,6 +58,7 @@ class SortBy extends Component {
 
 SortBy.defaultProps = {
   textProperty: "path",
+  labelProperty: "label",
 };
 
 export default SortBy;
