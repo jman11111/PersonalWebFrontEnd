@@ -151,14 +151,14 @@ class Sculptures extends Component {
             />
           </div>
           <div className="row my-row">
-            <div className="col-2 w-25">
+            <div className="col-3 w-25">
               <ListGroup
                 items={years}
                 onItemSelect={this.handleYearSelect}
                 selectedItem={selectedYear}
               ></ListGroup>
             </div>
-            <div className="col-10">
+            <div className="col-9">
               <ul className="container">
                 <GridGenerator cols={3}>
                   {sculptures.map((sculpture) => {
