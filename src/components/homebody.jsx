@@ -22,7 +22,8 @@ const Homebody = () => {
       <h2 className="m-5 text-center">About the Website</h2>
       <p className="text-center">
         The tech stack for this website is React.js frontend, Node.js backend,
-        and MongoDB/Mongoose for database functionality. Source code for backend{" "}
+        and MongoDB/Mongoose for database functionality, hosted on Heroku and DB
+        on Mlab. Source code for backend{" "}
         <a href="https://github.com/jman11111/NodeBackend">here</a> and for
         frontend{" "}
         <a href="https://github.com/jman11111/PersonalWebFrontEnd/tree/V1.0">

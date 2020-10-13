@@ -69,7 +69,9 @@ class Sculptures extends Component {
   // };
 
   async getSculptures() {
-    const { data } = await axios.get("http://localhost:3001/api/sculptures/");
+    const { data } = await axios.get(
+      "https://desolate-savannah-11467.herokuapp.com/api/sculptures/"
+    );
     const datetrimmed = data.map((sculpture) => {
       sculpture.dateMade = sculpture.dateMade.substring(
         0,
