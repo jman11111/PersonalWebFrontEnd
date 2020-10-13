@@ -25,23 +25,14 @@ class App2 extends Component {
             <Link className="p-4" to="/sculptures">
               Sculptures
             </Link>
-            <Link className="p-4" to="/login">
-              Login
-            </Link>
           </div>
         </NavBar>
         <div className="content">
           <Switch>
-            <Route exact path="/login" component={() => <LoginForm />} />
             <Route
               exact
               path="/sculptures"
               render={(props) => <Sculptures {...props} />}
-            />
-            <Route
-              exact
-              path="/register"
-              render={(props) => <RegisterForm {...props} />}
             />
             <Route path="/" exact component={Home} />
             <Route
