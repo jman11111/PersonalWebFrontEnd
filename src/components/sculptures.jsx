@@ -9,6 +9,7 @@ import _ from "lodash";
 import GridGenerator from "./common/gridGenerator";
 import SearchForm from "./common/searchForm";
 import axios from "axios";
+import Dropdown from "./common/dropdown";
 
 class Sculptures extends Component {
   state = {
@@ -141,44 +142,53 @@ class Sculptures extends Component {
     return (
       <div>
         <Header>Sculptures</Header>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row my-row">
-            <SearchForm onSearchSubmit={this.handleSearchSubmit} />
-            <SortBy
-              className="col-10"
-              onSort={this.handleSort}
-              sortOptions={sortOptions}
-              selectedSortOption={selectedSortOption}
-            />
+            <div className="container-fluid">
+              <div className="row">
+                <SearchForm onSearchSubmit={this.handleSearchSubmit} />
+              </div>
+              <div className="row">
+                <p className="mt-2 col-1">Sort By: </p>
+                <div className="col-6">
+                  <SortBy
+                    onSort={this.handleSort}
+                    sortOptions={sortOptions}
+                    selectedSortOption={selectedSortOption}
+                  />
+                </div>
+                <p className="mt-2 col-1">Select: </p>
+                <div className="col-4">
+                  <Dropdown
+                    items={years}
+                    currentItem={selectedYear}
+                    onItemSelect={this.handleYearSelect}
+                  ></Dropdown>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* This displays until data is loaded */}
           {sculptures.length === 0 ? (
             <h1 className="text-center">Loading</h1>
           ) : (
             <div className="row my-row">
-              <div className="col-3 w-25">
-                <ListGroup
-                  items={years}
-                  onItemSelect={this.handleYearSelect}
-                  selectedItem={selectedYear}
-                ></ListGroup>
-              </div>
-              <div className="col-9">
-                <ul className="container">
-                  <GridGenerator cols={3}>
-                    {sculptures.map((sculpture) => {
-                      return (
-                        <ThumbnailCard
-                          key={sculpture._id}
-                          name={sculpture.name}
-                          date={sculpture.dateMade}
-                          photoURL={sculpture.photoURL}
-                          description={sculpture.description}
-                        />
-                      );
-                    })}
-                  </GridGenerator>
-                </ul>
-              </div>
+              <ul className="container">
+                <GridGenerator cols={3}>
+                  {sculptures.map((sculpture) => {
+                    return (
+                      <ThumbnailCard
+                        key={sculpture._id}
+                        name={sculpture.name}
+                        date={sculpture.dateMade}
+                        photoURL={sculpture.photoURL}
+                        description={sculpture.description}
+                      />
+                    );
+                  })}
+                </GridGenerator>
+              </ul>
             </div>
           )}
           <div className="row justify-content-center">
