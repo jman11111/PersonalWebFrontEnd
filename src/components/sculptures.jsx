@@ -36,6 +36,7 @@ class Sculptures extends Component {
 
   async componentDidMount() {
     //const { data: posts } = await axios.get();
+    console.log(this.state.sculptures);
     this.setState({
       years: [{ name: "All Time" }, ...this.getYears()],
       sortOptions: [...this.getSortOptions()],
@@ -150,32 +151,36 @@ class Sculptures extends Component {
               selectedSortOption={selectedSortOption}
             />
           </div>
-          <div className="row my-row">
-            <div className="col-3 w-25">
-              <ListGroup
-                items={years}
-                onItemSelect={this.handleYearSelect}
-                selectedItem={selectedYear}
-              ></ListGroup>
+          {sculptures.length === 0 ? (
+            <h1 className="text-center">Loading</h1>
+          ) : (
+            <div className="row my-row">
+              <div className="col-3 w-25">
+                <ListGroup
+                  items={years}
+                  onItemSelect={this.handleYearSelect}
+                  selectedItem={selectedYear}
+                ></ListGroup>
+              </div>
+              <div className="col-9">
+                <ul className="container">
+                  <GridGenerator cols={3}>
+                    {sculptures.map((sculpture) => {
+                      return (
+                        <ThumbnailCard
+                          key={sculpture._id}
+                          name={sculpture.name}
+                          date={sculpture.dateMade}
+                          photoURL={sculpture.photoURL}
+                          description={sculpture.description}
+                        />
+                      );
+                    })}
+                  </GridGenerator>
+                </ul>
+              </div>
             </div>
-            <div className="col-9">
-              <ul className="container">
-                <GridGenerator cols={3}>
-                  {sculptures.map((sculpture) => {
-                    return (
-                      <ThumbnailCard
-                        key={sculpture._id}
-                        name={sculpture.name}
-                        date={sculpture.dateMade}
-                        photoURL={sculpture.photoURL}
-                        description={sculpture.description}
-                      />
-                    );
-                  })}
-                </GridGenerator>
-              </ul>
-            </div>
-          </div>
+          )}
           <div className="row justify-content-center">
             <Paginator
               itemsCount={totalcount}
