@@ -41,7 +41,7 @@ class SearchForm extends Component {
               className="form-control"
             />
           </div>
-          <button className="btn btn-primary col-4">Apply</button>
+          <button className="btn btn-primary mt-3 mb-3 col-4">Apply</button>
         </form>
       </div>
     );

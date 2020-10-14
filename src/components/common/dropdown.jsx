@@ -12,7 +12,7 @@ class Dropdown extends Component {
     return (
       <div>
         <button
-          className="list-group-item col clickable"
+          className="ml-2 list-group-item clickable"
           onClick={this.handleClick}
         >
           {currentItem.name}

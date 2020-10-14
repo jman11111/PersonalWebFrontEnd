@@ -149,21 +149,21 @@ class Sculptures extends Component {
                 <SearchForm onSearchSubmit={this.handleSearchSubmit} />
               </div>
               <div className="row">
-                <p className="mt-2 col-1">Sort By: </p>
-                <div className="col-6">
-                  <SortBy
-                    onSort={this.handleSort}
-                    sortOptions={sortOptions}
-                    selectedSortOption={selectedSortOption}
-                  />
-                </div>
-                <p className="mt-2 col-1">Select: </p>
+                <p className="mt-2 col-1">Select:</p>
                 <div className="col-4">
                   <Dropdown
                     items={years}
                     currentItem={selectedYear}
                     onItemSelect={this.handleYearSelect}
                   ></Dropdown>
+                </div>
+                <p className="mt-2 col-1">Sort By:</p>
+                <div className="col-6">
+                  <SortBy
+                    onSort={this.handleSort}
+                    sortOptions={sortOptions}
+                    selectedSortOption={selectedSortOption}
+                  />
                 </div>
               </div>
             </div>
