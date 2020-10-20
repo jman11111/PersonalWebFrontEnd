@@ -19,12 +19,14 @@ class ThumbnailCard extends Component {
   render() {
     const { photoURL, name, description, date } = this.props;
     return (
-      <div className="p-3 border border-secondary">
-        <img
-          src={photoURL}
-          className="img-thumbnail"
-          alt="https://homepages.cae.wisc.edu/~ece533/images/baboon.png"
-        ></img>
+      <div className="p-3 m-3 border border-secondary">
+        <a href={photoURL}>
+          <img
+            src={photoURL}
+            className="img-thumbnail"
+            alt="https://homepages.cae.wisc.edu/~ece533/images/baboon.png"
+          ></img>
+        </a>
         <p>{name}</p>
         <p>{description}</p>
         <p>{date}</p>
