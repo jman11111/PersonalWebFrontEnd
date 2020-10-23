@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { createPopper } from "@popperjs/core";
 
 class Dropdown extends Component {
   state = { isOpen: false };
@@ -13,6 +14,10 @@ class Dropdown extends Component {
       <div>
         <button
           className="ml-4 list-group-item clickable"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="true"
           onClick={this.handleClick}
         >
           {currentItem.name}
@@ -23,7 +28,7 @@ class Dropdown extends Component {
           )}
         </button>
         {this.state.isOpen ? (
-          <div>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {items.map((listItem) => {
               return (
                 <li

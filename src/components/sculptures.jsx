@@ -20,7 +20,7 @@ class Sculptures extends Component {
     selectedYear: { name: "All Time" },
     sortOptions: [],
     searchPhrase: "",
-    selectedSortOption: { path: "", order: "" },
+    selectedSortOption: { path: "dateMade", order: "desc" },
   };
 
   handlePageChange = (page) => {
