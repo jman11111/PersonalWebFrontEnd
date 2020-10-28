@@ -3,7 +3,6 @@ import Header from "./common/header";
 import ThumbnailCard from "./common/thumbnailcard";
 import Paginator from "./common/pagination";
 import { paginate } from "./../util/paginate";
-import ListGroup from "./common/listGroup";
 import SortBy from "./common/sortBy";
 import _ from "lodash";
 import GridGenerator from "./common/gridGenerator";
@@ -74,11 +73,12 @@ class Sculptures extends Component {
     const { data } = await axios.get(
       "https://desolate-savannah-11467.herokuapp.com/api/sculptures/"
     );
-    const datetrimmed = data.map((sculpture) => {
+    data.map((sculpture) => {
       sculpture.dateMade = sculpture.dateMade.substring(
         0,
         sculpture.dateMade.indexOf("T")
       );
+      return sculpture;
     });
     console.log(data);
     return data;
@@ -191,6 +191,29 @@ class Sculptures extends Component {
               </ul>
             </div>
           )}
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">
+                Action
+              </a>
+              <a class="dropdown-item" href="#">
+                Another action
+              </a>
+              <a class="dropdown-item" href="#">
+                Something else here
+              </a>
+            </div>
+          </div>
           <div className="row justify-content-center">
             <Paginator
               itemsCount={totalcount}

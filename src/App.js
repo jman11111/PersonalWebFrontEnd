@@ -5,7 +5,6 @@ import Home from "./components/home";
 import LoginForm from "./components/loginForm";
 import Sculptures from "./components/sculptures";
 import RegisterForm from "./components/registerForm";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 //go from most specific to least inside switch component
 

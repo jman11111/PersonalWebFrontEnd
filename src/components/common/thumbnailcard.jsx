@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 /* <img
           src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"

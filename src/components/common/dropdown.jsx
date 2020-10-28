@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { createPopper } from "@popperjs/core";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownToggle from "react-bootstrap/DropdownToggle";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
 
-class Dropdown extends Component {
+class YearDropdown extends Component {
   state = { isOpen: false };
 
   handleClick = () => {
@@ -11,13 +13,11 @@ class Dropdown extends Component {
   render() {
     const { items, currentItem, onItemSelect } = this.props;
     return (
-      <div>
+      <div className="dropdown">
         <button
-          className="ml-4 list-group-item clickable"
+          className="ml-4 list-group-item clickable dropdown-toggle"
           id="dropdownMenuButton"
           data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="true"
           onClick={this.handleClick}
         >
           {currentItem.name}
@@ -52,4 +52,4 @@ class Dropdown extends Component {
   }
 }
 
-export default Dropdown;
+export default YearDropdown;

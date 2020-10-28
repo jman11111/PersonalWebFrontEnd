@@ -17,7 +17,10 @@ const Homebody = () => {
         Github: <a href="https://github.com/jman11111">jman11111</a>
       </p>
       <p className="text-center">
-        LinkedIn: <a href="https://github.com/jman11111">Jack Broncato</a>
+        LinkedIn:{" "}
+        <a href="https://www.linkedin.com/in/jack-broncato-1736a5170/">
+          Jack Broncato
+        </a>
       </p>
       <h2 className="m-5 text-center">About the Website</h2>
       <p className="text-center">
