@@ -149,7 +149,7 @@ class Sculptures extends Component {
                 <SearchForm onSearchSubmit={this.handleSearchSubmit} />
               </div>
               <div className="row">
-                <p className="mt-2 col-1">Select:</p>
+                <p className="mt-2">Select:</p>
                 <div className="col-4">
                   <Dropdown
                     items={years}
@@ -157,8 +157,8 @@ class Sculptures extends Component {
                     onItemSelect={this.handleYearSelect}
                   ></Dropdown>
                 </div>
-                <p className="mt-2 col-1">Sort By:</p>
-                <div className="col-6">
+                <p className="mt-2">Sort By:</p>
+                <div className="col-sm-6">
                   <SortBy
                     onSort={this.handleSort}
                     sortOptions={sortOptions}
@@ -191,29 +191,6 @@ class Sculptures extends Component {
               </ul>
             </div>
           )}
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">
-                Action
-              </a>
-              <a class="dropdown-item" href="#">
-                Another action
-              </a>
-              <a class="dropdown-item" href="#">
-                Something else here
-              </a>
-            </div>
-          </div>
           <div className="row justify-content-center">
             <Paginator
               itemsCount={totalcount}

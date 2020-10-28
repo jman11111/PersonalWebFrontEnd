@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownToggle from "react-bootstrap/DropdownToggle";
-import DropdownMenu from "react-bootstrap/DropdownMenu";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 class YearDropdown extends Component {
   state = { isOpen: false };
@@ -13,41 +12,28 @@ class YearDropdown extends Component {
   render() {
     const { items, currentItem, onItemSelect } = this.props;
     return (
-      <div className="dropdown">
-        <button
-          className="ml-4 list-group-item clickable dropdown-toggle"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          onClick={this.handleClick}
-        >
-          {currentItem.name}
-          {this.state.isOpen ? (
-            <i className="m-1 fa fa-sort-asc" />
-          ) : (
-            <i className="m-1 fa fa-sort-desc" />
-          )}
-        </button>
-        {this.state.isOpen ? (
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {items.map((listItem) => {
-              return (
-                <li
-                  onClick={() => {
-                    onItemSelect(listItem);
-                  }}
-                  className={
-                    currentItem.name === listItem.name
-                      ? "list-group-item active"
-                      : "list-group-item"
-                  }
-                >
-                  {listItem.name}
-                </li>
-              );
-            })}
-          </div>
-        ) : null}
-      </div>
+      <DropdownButton
+        bsPrefix="list-group-item col"
+        id="dropdown-basic-button"
+        title={currentItem.name}
+      >
+        {items.map((listItem) => {
+          return (
+            <Dropdown.Item
+              onClick={() => {
+                onItemSelect(listItem);
+              }}
+              className={
+                currentItem.name === listItem.name
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+            >
+              {listItem.name}
+            </Dropdown.Item>
+          );
+        })}
+      </DropdownButton>
     );
   }
 }
